@@ -49,6 +49,7 @@ const Profile = () => {
 			await AsyncStorage.setItem("userEmail", email);
 			await AsyncStorage.setItem("userPhoneNumber", phoneNumber);
 			alert("Profile saved successfully!");
+			navigation.navigate("Home");
 		} catch (e) {
 			console.error("Failed to save profile data:", e);
 			alert("Failed to save profile data.");
@@ -68,7 +69,6 @@ const Profile = () => {
 			setLastName("");
 			setEmail("");
 			setPhoneNumber("");
-			// navigation.navigate("Onboarding");
 			navigation.dispatch(
 				CommonActions.reset({
 					index: 1,
@@ -177,10 +177,11 @@ const styles = StyleSheet.create({
 		paddingVertical: 12,
 		paddingHorizontal: 20,
 		borderRadius: 5,
-		backgroundColor: "#333333",
-		alignSelf: "stretch",
+		backgroundColor: "#495E57",
+		alignSelf: "center",
 		alignItems: "center",
-		marginTop: 20
+		marginTop: 20,
+		width: "50%"
 	},
 	saveButtonText: {
 		color: "#FFFFFF",
@@ -191,10 +192,11 @@ const styles = StyleSheet.create({
 		paddingVertical: 12,
 		paddingHorizontal: 20,
 		borderRadius: 5,
-		backgroundColor: "#d9534f",
-		alignSelf: "stretch",
+		backgroundColor: "#EE9972",
+		alignSelf: "center",
 		alignItems: "center",
-		marginTop: 20
+		marginTop: 20,
+		width: "50%"
 	},
 	logoutButtonText: {
 		color: "#FFFFFF",
