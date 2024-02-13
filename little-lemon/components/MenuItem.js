@@ -2,7 +2,16 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
 const MenuItem = ({ item }) => {
-	const imageUrl = `https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/${item.image}?raw=true`;
+	const defaultImages = {
+		"Grilled Fish": require("../assets/GrilledFish.png"),
+		"Lemon Dessert": require("../assets/LemonDessert.png")
+	};
+
+	const imageSource = defaultImages[item.name]
+		? defaultImages[item.name]
+		: {
+				uri: `https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/${item.image}?raw=true`
+		  };
 
 	return (
 		<View style={styles.container}>
@@ -11,7 +20,7 @@ const MenuItem = ({ item }) => {
 				<Text style={styles.description}>{item.description}</Text>
 				<Text style={styles.price}>${item.price.toFixed(2)}</Text>
 			</View>
-			<Image source={{ uri: imageUrl }} style={styles.image} />
+			<Image source={imageSource} style={styles.image} />
 		</View>
 	);
 };

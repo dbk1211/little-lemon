@@ -53,7 +53,7 @@ const Onboarding = ({ navigation }) => {
 	return (
 		<View style={styles.container}>
 			<Image source={require("../assets/Logo.png")} style={styles.logo} />
-			<Text style={styles.title}>Let us get to know you</Text>
+			<Text style={styles.title}>Let us get to know you!</Text>
 			<View style={styles.inputContainer}>
 				<Text style={styles.label}>First Name</Text>
 				<TextInput
@@ -78,7 +78,7 @@ const Onboarding = ({ navigation }) => {
 			<TouchableOpacity
 				style={[
 					styles.button,
-					{ backgroundColor: isValid ? "#333333" : "#D3D3D3" }
+					{ backgroundColor: isValid ? "#495E57" : "#D3D3D3" }
 				]}
 				onPress={saveUserData}
 				disabled={!isValid}
@@ -94,21 +94,21 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "flex-start",
 		alignItems: "center",
-		paddingTop: 60,
-		paddingHorizontal: 20,
-		backgroundColor: "#f0f0f0"
+		paddingTop: 50,
+		paddingHorizontal: 20
 	},
 	logo: {
-		width: 200,
-		height: 80,
+		width: 300,
+		height: 120,
 		resizeMode: "contain",
 		alignSelf: "center",
-		marginBottom: 100
+		marginBottom: 20
 	},
 	title: {
-		fontSize: 18,
-		marginBottom: 100,
-		textAlign: "center"
+		fontSize: 16,
+		marginBottom: 50,
+		textAlign: "center",
+		fontFamily: "Karla-Regular"
 	},
 	inputContainer: {
 		alignSelf: "stretch",
@@ -118,7 +118,8 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		color: "#000",
 		marginBottom: 5,
-		marginLeft: 10
+		marginLeft: 10,
+		fontFamily: "Karla-Bold"
 	},
 	input: {
 		height: 40,
@@ -129,7 +130,8 @@ const styles = StyleSheet.create({
 		borderColor: "#d0d0d0",
 		alignSelf: "stretch",
 		marginLeft: 10,
-		marginRight: 10
+		marginRight: 10,
+		fontFamily: "Karla-Regular"
 	},
 	button: {
 		marginTop: 20,
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
 	buttonText: {
 		color: "#FFFFFF",
 		fontSize: 16,
-		fontWeight: "bold"
+		fontFamily: "Karla-Bold"
 	}
 });
 

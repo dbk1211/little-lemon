@@ -3,6 +3,7 @@ import {
 	View,
 	Text,
 	Alert,
+	Image,
 	TextInput,
 	StyleSheet,
 	TouchableOpacity
@@ -48,11 +49,10 @@ const Profile = () => {
 			await AsyncStorage.setItem("userLastName", lastName);
 			await AsyncStorage.setItem("userEmail", email);
 			await AsyncStorage.setItem("userPhoneNumber", phoneNumber);
-			alert("Profile saved successfully!");
+			Alert.alert("Profile saved successfully!");
 			navigation.navigate("Home");
 		} catch (e) {
 			console.error("Failed to save profile data:", e);
-			alert("Failed to save profile data.");
 		}
 	};
 
@@ -82,7 +82,12 @@ const Profile = () => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Personal information</Text>
+			<View style={styles.logoContainer}>
+				<Image
+					source={require("../assets/Logo.png")}
+					style={styles.logo}
+				/>
+			</View>
 			<View style={styles.inputContainer}>
 				<Text style={styles.label}>First Name</Text>
 				<TextInput
@@ -148,14 +153,7 @@ export default Profile;
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingTop: 50,
-		paddingHorizontal: 20,
-		backgroundColor: "#fff"
-	},
-	title: {
-		fontSize: 22,
-		fontWeight: "bold",
-		marginBottom: 20
+		paddingHorizontal: 20
 	},
 	inputContainer: {
 		alignSelf: "stretch",
@@ -163,7 +161,8 @@ const styles = StyleSheet.create({
 	},
 	label: {
 		fontSize: 16,
-		marginBottom: 5
+		marginBottom: 5,
+		fontFamily: "Karla-Bold"
 	},
 	input: {
 		height: 40,
@@ -171,7 +170,8 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderRadius: 5,
 		borderColor: "#d0d0d0",
-		backgroundColor: "#ffffff"
+		backgroundColor: "#ffffff",
+		fontFamily: "Karla-Regular"
 	},
 	saveButton: {
 		paddingVertical: 12,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
 	saveButtonText: {
 		color: "#FFFFFF",
 		fontSize: 18,
-		fontWeight: "bold"
+		fontFamily: "Karla-Bold"
 	},
 	logoutButton: {
 		paddingVertical: 12,
@@ -201,6 +201,14 @@ const styles = StyleSheet.create({
 	logoutButtonText: {
 		color: "#FFFFFF",
 		fontSize: 18,
-		fontWeight: "bold"
+		fontFamily: "Karla-Bold"
+	},
+	logoContainer: {
+		alignItems: "center"
+	},
+	logo: {
+		width: 150,
+		height: 60,
+		resizeMode: "contain"
 	}
 });
